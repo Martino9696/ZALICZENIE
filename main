@@ -1,0 +1,29 @@
+def oblicz_bmi(waga, wzrost):
+    bmi = waga / (wzrost ** 2)
+    return bmi
+
+def interpretuj_bmi(bmi):
+    if bmi < 18.5:
+        return "Niedowaga"
+    elif 18.5 <= bmi < 25:
+        return "Waga prawidłowa"
+    elif 25 <= bmi < 30:
+        return "Nadwaga"
+    else:
+        return "Otyłość"
+
+def main():
+    print("Kalkulator BMI")
+    try:
+        waga = float(input("Podaj wagę w kilogramach: "))
+        wzrost = float(input("Podaj wzrost w metrach (np. 1.75): "))
+
+        bmi = oblicz_bmi(waga, wzrost)
+        kategoria = interpretuj_bmi(bmi)
+
+        print(f"\nTwoje BMI wynosi: {bmi:.2f}")
+        print(f"Kategoria: {kategoria}")
+    except ValueError:
+        print("Błąd: Podano nieprawidłowe dane liczbowe.")
+
+main()
